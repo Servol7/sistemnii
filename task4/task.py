@@ -8,19 +8,19 @@ def task():
             res[i + j, i * j] += 1
     res /= 36
 
-    HAs = np.sum(res, axis=1)
-    HA = -np.sum(HAs * np.log2(HAs, where=np.abs(HAs) > 1e-5))
+    H_As = np.sum(res, axis=1)
+    H_A = -np.sum(H_As * np.log2(H_As, where=np.abs(H_As) > 1e-5))
 
-    HBs = np.sum(res, axis=0)
-    HB = -np.sum(HBs * np.log2(HBs, where=np.abs(HBs) > 1e-5))
+    H_Bs = np.sum(res, axis=0)
+    H_B = -np.sum(H_Bs * np.log2(H_Bs, where=np.abs(H_Bs) > 1e-5))
 
-    HAB = -np.sum(res * np.log2(res, where=np.abs(res) > 1e-5))
+    H_AB = -np.sum(res * np.log2(res, where=np.abs(res) > 1e-5))
 
-    HaB = HAB - HA
+    Ha_B = H_AB - H_A
 
-    I = HB - HaB
+    I_AB = H_B - Ha_B
 
-    ret = [HAB, HA, HB, HaB, I]
+    ret = [H_AB, H_A, H_B, Ha_B, I_AB]
     return [round(el, 2) for el in ret]
 
 print(task())
