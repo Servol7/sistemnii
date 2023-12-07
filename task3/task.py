@@ -1,7 +1,7 @@
 import csv
 from math import log
 
-def Entropy(csv_line):
+def task(csv_line):
     matrix = []
     for r in csv_line.splitlines():
         r_ = []
@@ -31,4 +31,4 @@ for i in L:
     data += ",".join(i)
     data += "\n" 
 
-Entropy(data)
+task(data)
